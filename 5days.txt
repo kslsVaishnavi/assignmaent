@@ -1,0 +1,518 @@
+Day 1
+Java set up
+Eclipse set up
+
+on 20 auguest2009 oracle has acquired Sun microsystems and currently the owner of JAVA.
+Java:-It is a highlevel programming language which is used to develop web,desktop and mobile applications.It is human readable language.Initially java is called as ock.Java is platform independent programming language that follows the logic of "Write once,run anywhere".It is a computer programming language that enforces an object oriented programming model.
+
+--> Present running version of java is -16
+JDK-Java Development Kit--It has tools that are used to run.
+                          It is platform independent.
+                          It includes tools that are useful for developing and testing programs in java programming language and runs in java platform.
+                          It consists of JRE and (compiler,debugger,Javadoc,Keytool)  
+                          Compiler converts code written in Java into byte code.
+                          Java application launcher opens a JRE, loads the necessary class, and executes its main method.
+JRE-Java Run-Time Environment--It provides list of class programming codes for communicate.
+                               It consists of JVM and class labraries and other supporting files.
+                               It is the main person to work as translator /Interpreter converting from programming language to machine language.
+                               It maybe linux,windows,unix etc..
+JVM-Java Virtual Machine--JVM provides a platform-independent way of executing Java source code.
+                          JVM comes with JIT(Just-in-Time) compiler that converts Java source code into low-level machine language.
+                          Once we run Java program, we can run on any platform and save lots of time.
+
+Class:-It is the user defined blueprint or templete to use for design.
+             Car  -}class
+ 
+             -tyres     |
+             -gears     |-->data fields/references
+             -brakes    |
+            
+            -running the car              |
+            -increase/decrease the speed  |-->operations /methods
+            -apply brakes to stop         |
+
+Object:-It is the instance of class.Each object has its own set of instance variables.It is the basic unit of oops and represents the real life entities.
+
+Reserved Words:-You can use these words as user definitions.  Example:: if,switch,for,class,object.
+
+Comments:- It provides the details.It is of two types  
+             ------// single line comments
+            -------/* Double line comments
+Variables:- Data members tobe used by the class.For each variable we have decleration and initialization.
+    Decleration-- define type of variable and name of variable.
+    Initialization-- assign value to variable.
+
+Types of variables:-Primitive and Non-Primitive.
+  Primitive:-define the type of variable.
+      Numbers:-integets  (int)-- 0 and whole numbers
+               rational  (float)-- 1.1,2.2,3.3------
+               byte       0 or 1
+      boolean:-  true  (or) false
+      characters:- single - 'a','A'
+                   multi or string - "Java"
+      no return (void) -- used for method not for variables. 
+ (;)---> to complete ClassBodyDeclartion ; to end statement
+ 
+Methods :-It is a way to perform some task.cannot run method without initialization.
+            it consiste of definition and return type.
+  definition-->define type and name       return type--> return and accepting parameters types
+
+Print--> to print data.
+Println--> to print new line  or  to print line.
+Peintf-->formated print.
+Console--> to display to user.
+*Program:
+        class Car
+   public class Car{
+           viod run(){                               o/p: my car is running
+      System.out.println("my car is running");           
+}
+  public static void main(String[] args){
+     Car brezzaCar=new Car();
+     brezzaCar.run();
+  }
+}
+Construtor :- method that is used to create object.It doesnot have  return type.
+              With help of new keyword and method called construtor we can create an object.
+              
+            [name of constructor=name of class]
+            Car brezzaCar=new Car()
+ The real functionalitiy is done by object not class.
+
+Types of constructors: Default and Parametarised
+
+Default-- If no values are given,then it should give a default value '0'.
+Parametarised--We will create by our own.For a parametarised constructor there should be default constructor by default.
+  Car brezza= new Car(10,true, 'y',18) 
+
+*Program:
+public class Car{
+   int tyres=4;
+   char name="brezza";
+   boolean isCarReady;
+void run();
+System.out.println("running");
+Car(){
+}
+public Car(int tyres,boolean isCarReady,char ch,int gears){
+ this.tyres =tyres;
+ this.isCarReady=isCarReady;
+ this.ch=ch;
+ this.gears=gears;
+}
+//default constructor
+public static void main(String[] args){
+ Car brezza=new Car();
+ System.out.println("--Brezza--");
+ System.out.println(brezza.tyres);
+ System.out.println(brezza.isCarReady);
+ System.out.println("---------------");
+ System.out.println(brezza.ch);
+ System.out.println("---------------");
+ System.out.println(brezza.gears);
+}   
+ //parametarized constructor
+ Car ford=new Car(10,true,'Y',18);
+ System.out.println("--ford--");
+ System.out.println(ford.Tyres);
+ System.out.println(ford.isCarReady);
+ System.out.println("------------");
+ System.out.println(ford.ch);
+ System.out.println("-----------");
+ System.out.println(ford.gears);
+}
+}
+
+Difference between Method and Class
+-->method name should be always same as class Name
+-->It should not return.
+ 
+Console:- to vision the output.
+
+Input/Output:-  System.out.println("hello");---output
+                System.in---to give input(reading from console)
+                .next()---next line
+Scanner:-this import file to give input
+          Scanner sc=new Scanner(System.in)
+          System.out.println("Hello"+sc.next())
+
+Conditions:- these are statements that are createdby the user which evaluates actions in the program and evaluates if its true or false.
+    Example:- if,if else, else if,switch case.
+   list of employees eligible for promotion-->1 2 3 4 5
+
+Instead of multiple 'if' condition ,we use loops.
+Loops:-It is a control flow statement that iterates a part of the program multiple times.It executes a part of program repeatedly on the basics of given boolean condition.
+  Example: for, foreach,while, dowhile.
+
+Arrays:- list of values  ---static array  ----Dynamic array
+*Program:-
+ public class employee {
+	public static void main(String[] args){
+		int employeeRanks[]={1,2,3,4};
+		for(int i=0;i<employeeRanks.length;i++){
+			if(employeeRanks[i]>=3){
+				System.out.println("eligible"+employeeRanks[i]);
+			}else{
+				System.out.println("Not eligible"+employeeRanks[i]);
+			}
+		}
+		System.out.println("-----------------");
+		//enhanced for loop
+		for(int rank:employeeRanks){
+			if(rank>=3){
+				System.out.println("eligible"+rank);
+			}else{
+				System.out.println("not eligible"+rank);
+			}
+		}
+		
+	}
+
+}
+lenght:- length of the values.(.length)
+*Program:
+   public claa LengthExample{
+    public static void main(String[] args){
+      String s1="Vaishnavi";
+     System.out.println("string length:"+s1.length());
+}}
+
+Increament (++) OR Decrement(--):-
+Decrement:
+*Program:
+class Example {
+    public static void main(String args[]){       o/p:5
+         int i=5;                                     4
+         while(i>1){                                  3
+              System.out.println(i);                  2
+              i--;                                    1
+         }
+    }
+}
+Increment:
+*Program:
+class WhileLoopExample2 {
+    public static void main(String args[]){
+         int i=10;                               o/p: infinity
+         while(i>1)
+         {
+             System.out.println(i);
+              i++;
+         }
+    }
+}
+ 
+Switch:A switch statement allows a variable to be tested for equality for the list of variables.Each value is called case.
+*Program:
+   public class Condition { 
+	
+   public static void main(String[] args){
+	   
+	   int colors[]={0,1,2};
+	   for (int color:colors){
+		   if(color==0){
+			   System.out.println("yellow1 color");
+			 }else if(color==1){
+				System.out.println("violet color");
+			 }else{
+				 System.out.println("orange color");
+			 }
+	   }
+  
+       System.out.println("-------------");  
+       for(int color:colors){
+	switch(color){
+	case 0:
+		System.out.println("red color");
+		break;
+	case 1:
+		System.out.println("violet color");
+		break;
+		default:
+		System.out.println("orange color");
+	}
+   }
+  }
+}
+
+Ternary operator:It allows to write if statement in one line.
+           ?_____:______
+ *Program:  
+           num1 = 10;                                               O/P:
+           num2 = 20;                                                         res = num1-num2 = -10
+
+          res=(num1>num2) ? (num1+num2):(num1-num2)
+          (Since num1<num2, the second operation is performed)
+
+Strings:- It is sequence of characters.In string we have length method because it is class.Two types:
+           single character ='V'
+           multi characters ="Hello"
+.toLowerCase():This method converts a string to lowercase letters.It doesnot change original string.
+    Example: let str="HelloWorld"         O/P:helloworld
+.toUppercase():This method converts a string to uppercase letters.It doesnot change original string.
+    Example: let str="helloworld"         O/P:HELLOWORLD
+
+JVM:Java Virtual Machine :- inside there will be memory.object is created,there will be Heap memory and stack memory.
+    Heap Memory                         stack Memory
+  - object created                   -reference stored
+  -to store objects                     Car 1
+  -check if there is existing           Car 2
+   object it will not create new
+   one instead use old one
+  -when ever obj is created
+      NEW CAR()
+If there are two references pointing to same object.It is shared.
+
+OOPs:Object Oriented Principles: any programming language supports these four functionalities, then that language
+       is called OOPs.Java programs uses these principles.
+  --->Encapsulation:It means data binding.Thee is a strong bond between class and its data(variables) and members(functions), we cannot access these variables without object creation.
+  --->Abstraction:It means data hiding.`It hides irrelevant data to end user and showing what is necessary.Data Abstraction may also be defined as the process of identifying only the required                         characteristics of an object ignoring the irrelevant details.
+  --->Inheritance:It is a kind of data sharing.It means getting the parent properties to the child.It has parent class and child class.
+               Parent class is also called as super class (or) base class.
+               child class is also called as sub class (or) derived class.
+    *Parent class: The class whose properties are inherited is known as Parentclass.
+    *Child class: The class that inherits the other class properties is known as Childclass.
+ *Program:
+     class parent {
+    public void print_one()
+    {
+        System.out.println("Hello");                    o/p:
+   }
+ }                                                          Hello
+    class child extends parent {                            World
+    public void print_two() {                               Hello
+        System.out.println("World"); }
+ }
+   public class Main {
+    public static void main(String[] args)
+    {
+        child v = new child();
+        v.print_one();
+        v.print_two();
+        v.print_one();
+    }
+ }
+
+Multi-level Inheritance:
+ *Program:
+interface one {
+    public void print_first();
+}
+ 
+interface two {
+    public void print_second();
+}
+ 
+interface three extends one, two {              o/p:
+    public void print_third();                       hiii
+}                                                    World
+class child implements three {                       hiii
+    public void print_fourth()
+    {
+        System.out.println("hiii");
+    }
+ 
+    public void print_second() {
+           System.out.println("World"); }
+}
+public class Main {
+    public static void main(String[] args)
+    {
+        child c = new child();
+        c.print_first();
+        c.print_second();
+        c.print_third();
+    }
+}
+  --->Polymorhism:Allows us to perform a single action in different ways.Two types--- Overloading method.
+                                                                                  ---  Overriding method.
+      Overloading method:It allows different methods to have the same name, but different signatures that differ by the number of input parameters (or) type of input parameters or both. Overloading                          is related to compile-time polymorphism.If there is no static,return type is not performed in overloading.
+ *Program:
+    public class Sum {
+    public int sum(int x, int y)
+    {
+        return (x + y);
+    }
+    public int sum(int x, int y, int z)              o/p:30
+    {                                                    60
+        return (x + y + z);                              31.0
+    }
+    public double sum(double x, double y)
+    {
+        return (x + y);
+    }
+    public static void main(String args[])
+    {
+        Sum s = new Sum();
+        System.out.println(s.sum(10, 20));
+        System.out.println(s.sum(10, 20, 30));
+        System.out.println(s.sum(10.5, 20.5));
+    }
+}
+  
+    Overriding Method: It is a feature that allows a subclass or child class to provide a specific implementation of a method that is already provided by one of its super-classes or parent classes.                        When a method in a subclass has the same name, same parameters or signature, and same return type(or sub-type) as a method in its super-class, then the method in the subclass                        is said to override the method in the super-class.
+  *Program:
+class Parent {
+    void show()
+    {
+        System.out.println("Parent's show()");
+    }
+}
+  class Child extends Parent {
+    void show()
+    {
+        System.out.println("Child's show()");
+    }
+}
+  class Main {
+    public static void main(String[] args)
+    {
+        
+        Parent obj1 = new Parent();
+        obj1.show();
+        Parent obj2 = new Child();
+        obj2.show();
+    }
+}
+
+Access Specifers:-Default   Public   Private   Protected
+   Default:The data members,class or methods which are not declared using any access modifiers i.e. having default access modifiers are accessible only within the same package.
+  *Program:
+   package p1; 
+ 
+  class A
+  {  
+    void display() 
+    { 
+        System.out.println("Hello World!");         o/p:
+    }                                               compile error
+  } 
+
+  package p2; 
+  import p1.*;  
+  class B 
+  { 
+    public static void main(String args[]) 
+    { 
+         A obj = new A(); 
+        obj.display(); 
+    } 
+ } 
+
+  Private:The private access modifier is denoted by using the keyword Private.The methods or data members declared as private are accessible only within the class in which they are declared.
+           Any other class of the same package will not be able to access these members.
+  *Program:
+   package p1; 
+  class J 
+   { 
+   private void display() 
+    { 
+        System.out.println("Welcome");            o/p: error ,bcoz it is private
+    } 
+  } 
+  class K 
+  { 
+   public static void main(String args[]) 
+    { 
+        J obj = new J(); 
+        obj.display(); 
+    } 
+  }
+
+ Protected:The protected access modifier is specified using the keyword protected.The methods or data members declared as protected are accessible within the same package or subclasses in different             packages. 
+ *Program:package p1; 
+  public class A 
+    { 
+     protected void display() 
+    { 
+        System.out.println("Welcome"); 
+    } 
+  } 
+
+  package p2; 
+   import p1.*; 
+  class B extends A 
+   { 
+    public static void main(String args[])           o/p:Welcome
+  { 
+    B obj = new B(); 
+    obj.display(); 
+  } 
+ } 
+
+  Public:The public access modifier is specified using the keyword public.The public access modifier is open to access for any class in any package.Classes, methods, or data members that are                  declared as public are accessible from everywhere in the program. 
+  *Program:
+    package p1; 
+      public class A 
+   { 
+    public void display() 
+    { 
+        System.out.println("Welcome");                o/p: Welcome
+    } 
+  }
+
+   package p2;
+     import p1.*;
+      class B {
+    public static void main(String args[])
+    {
+        A obj = new A;
+        obj.display();
+    }
+   }
+
+Package:It is the combination of classified files of common type.It is a group of similar types of classes, interfaces and sub-packages.All should be in small letters.
+       package a;
+Import:Importing classes which are not available in the same class.After package all imports should be there.
+       import.java.io
+  
+Static:When static is defined the variables are global or instance variables.All static variables are created inside stack.These will not inside object.Only for one oject or instance not for all.
+ Example: public class ClassA{
+  static int X=1;  ----->static variable
+          int Y=10; ------>local Variables
+   } 
+ -- static to data.members,blocks.
+Interface:-It provides a qualified template for a class to be eligible or declared as it belong to a type.We cannot EXTEND interface, we have to IMPLEMENT interface.Interface supports method             overriding.Interface-- public or default. All methods inside interface are abstract.
+   Example: package pack.a
+             public interface Car{
+          
+             }
+
+    Example2:public interface MyInterface{
+                void run(int gears,int tyres,int brakes)
+              }
+            class MyClass implements MyInterface{
+              
+              }
+
+Abstract:Abstract means incomplete i.e no logic available.In class we can have both abstract and non-abstract.If we dont knoe logic to implement then we use abstract keyword.If there is one          abstract method then that class is called Abstract method.In abstract we cannot create object.We can have more than 1 abstract method.
+Exceptions:There are the standerds which cannot catch by java.We cannot do operatipns which have the exceptions.It has two types----checked   ----Unchecked.
+            In the case of exceptions we use try and catch method.
+Datatype and Ranges:-It is mandatory to check while creating application,the size of application-variables correct data types.All values are corrected.To use the memory effectively by decide the size-range.int-4 bytes
+           float-4 bytes
+           char -2 bytes
+           long-8 bytes
+           double-8 bytes
+Plain text file:It means we will get the written output in a new file by extending it to .txt.For that we will import some of the classes.
+            *Program:
+                 package store;
+                  
+                   import java.io.File;
+                   import java.io.FileWriter;
+                   import java.io.IOException;
+             public class MtFile1 {
+
+       	     public static void main(String[] args) {
+	       try{
+		    File f=new File("invoice.txt");
+                    FileWriter fw=new FileWriter(f);
+		    fw.write("invoice.Bill");
+		    fw.close();
+		    }catch(IOException io){
+			
+                       }
+	        }
+           }
+
+ 
+     

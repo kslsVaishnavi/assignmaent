@@ -1,0 +1,107 @@
+UML- Unified model language--- pictorial representation of the project / application.
+Solid principles-user for following standard approach in designing your applicattion.
+SOLID PRINCIPLES:
+S--Single Responsibility
+O--Open/closed principle
+L--Liskov Substitution Principle
+I--Interface Segregation
+D--Dependency Inversion.
+
+Single Responsibility:--A class should do (or) hold one single responsibility (or) action.
+ Model--View--Controller
+Model-- data (or) actor
+ Actor-actors do the action in controller through view.
+ View- It is used to view as a medium to communicate.
+ Controller- Controller handles all the actions.Controller cannot do multiple actions. For example: in a store app it cannot access login action and billing action at a time.
+ ex:-Model-store;
+     View-StoreService;
+     Controller-StoreController;
+ Program:-class School{
+                   int students[];                                        
+                   int teachers[];    
+                    float percentage[];               
+              }
+-----------
+     public class School{
+       public void Students{
+          
+           } 
+      }
+-----------
+     public class School{
+      public void Teachers{
+     
+     }
+   }
+-----------
+      public class School{
+      public void percentage{
+     
+     }
+   }
+-----------
+
+Open/Closed principle:-- In this principle,it is Open for extentions and closed for modifications. We have to use extends.We should not modify the logic.Logic cannot be extentable,it cannot be                         modified.
+ Program:-vehicleinfo
+       public class Vehicle {
+    public vehicleinfo() {...}
+       }
+    public class Car extends Vehicle {
+    public vehicleinfo() {
+        return this.getValue() ;
+      }
+     public class Truck extends Vehicle{
+    public  vehicleinfo() {
+        return this.getValue() ;
+     }
+
+Liskov Substitution Principle:--Whenever creating sub-class,it should be in such a way that;the main class should be similar.Everything should be equal to same of datatype.When we pass a parent                                reference to a function it should return similar kind of solution.Variables should not change.
+ Program:-class shape{
+      int height=50;
+      int width=30;
+ }
+ class Rectangle extends shape{
+     width!=height;
+ }
+ class Square extends shape{
+   height=width;
+ }
+
+Interface Segregation:--It splits interface to its minimal.so that, sub-class no need to implement all the classes in it.Interface declaration should have as minimum as posibble divide single to multiple.
+ Program:-interface MyOperations{
+}
+ interfaces MyAdd{
+ addition; 
+ }
+ interfaces Mysub{
+  subraction;
+}
+ interfaces Mydiv{
+  division;
+}
+class MyClass implements Myoperations{
+ public void addition{
+   a+b;
+  }
+ public void subraction{
+ a-b;
+ }
+ public void dividion{
+ a/b;
+ }
+}
+
+Dependency Inversion:--It states that we should depend on interfaces and abstract classes instead of  classes. The abstractions should not depend on details; instead, the details should depend on abstractions.
+Program:public class clothingStore(){
+class store{
+
+}
+(dependency inversion using constructor)
+store str=new store();
+Product obj1=new Product("Jeans");
+Store str1=new Store(obj1);
+Product obj2=new Product("shirts");
+Store str2=new Store(obj2);
+Product obj3=new Product("hoodies");
+Store str3=new Store(obj3);
+}

@@ -1,0 +1,179 @@
+Exceptions:These are handled programatically.There will be exceptions that will normally occur in the programs ,thats why we use exceptions to handle the program to continue the control flow.
+public class JavaExceptionExample{  
+  public static void main(String args[]){  
+   try{  
+        
+      int data=100/0;  
+   }catch(ArithmeticException e){System.out.println(e);}  
+      
+   System.out.println(" exception...");  
+  }  
+}  
+There are 2 types of Exceptions:1 Checked Exceptions 
+                                2 Unckecked Exceptions
+Checked Exceptions: Checked exceptions represent errors outside the control of the program.These are compiletime errors.We should use throw keywork to declare a checked Exception.
+Example:all IOEXceptions
+        all SQLExceptions
+private static void checkedException() throws FileNotFoundException {
+    File file = new File("not_existing_file.txt");
+    FileInputStream stream = new FileInputStream(file);
+}
+Whenever an exceptions occured we have to use TRY CATCH method to overcome these exceptions.
+private static void checked() {
+    File file = new File("not_existing_file.txt");
+    try {
+        FileInputStream stream = new FileInputStream(file);
+    } catch (FileNotFoundException e) {
+        e.printStackTrace();
+    }
+}
+
+Unchecked Exceptions:Unchecked exception means, it reflects some error inside the program logic.For example,if we divide a number by 0, Java will throw ArithmeticException.We use 
+Example:Arthimatic Exception
+        ArrayIndex Exception
+        NullPointException
+private static void divideByZero() {
+    int a = 1;
+    int b = 0;
+    } try
+   System.out.println(a/div);
+}catch(ArithmeticException ae){
+System.out.println("cannot divide");
+ }
+Throws:Throws is used in checked Exceptions.Throws is allow until you call method.we should not use throw in main method.
+Pre-definedException:These are already defined in it.
+CustomException:It is the user-defined exception that is not previously available.Throws is used for custom exception.
+public class MyExceptioon {
+
+	public static void main(String[] args) {
+	 Scanner sc = new Scanner(System.in);
+		        System.out.println("Enter number: ");
+		        int a =sc.nextInt();
+		        if(a>100) {
+		            System.out.println("fine");
+		        }else {
+		            try {
+		                throw new MyException("enter value greater than 100");
+		            } catch (Exception e) {
+		                System.out.println(e.getMessage());
+		            }
+		        }
+		    }
+}
+		class MyException extends Exception {
+		    public MyException() {
+
+		  }
+                MyException(String message) {
+		        super(message);
+		    }
+		}
+
+e.getMessage:It will give the valid message.
+Try Catch Finally:
+finally is used for resources,release the objects.After execution of try catch,if we want to do any logic we use finally.
+public class filee {
+public static void main(String[] args) throws IOException {
+		File f=new File("myFile.txt");
+		try(FileWriter fw=new FileWriter(f);){
+			fw.write("hello");
+		}
+		System.out.println("created");
+		try{
+			int x=70;
+			int y=0;
+			int z=x/y;
+		}
+		catch(Exception e){
+			System.out.println("cannot divide by zero");
+		}
+		finally{
+			System.out.println("used for closing and releasing objects");
+		}
+		
+}
+}
+Try with resource:These is for releasing and connections and closable objects i.e automatic closable.
+public class filee {
+public static void main(String[] args) throws IOException {
+		File f=new File("myFile.txt");
+		try(FileWriter fw=new FileWriter(f);){
+			fw.write("bye");
+   }
+ System.out.println("yes this will print");
+}
+}
+
+Threads:It divides a single/big task into multiple sub tasks and make them work independently.multitasking can be enabled in Thread.
+There are 2 ways in thread:1. extends thread
+                           2. implements runnable
+the logic that needs to be executed is written inside a overridden method i.e run() method
+ public static void main(String[] args) throws Exception{
+	  A a = new A();
+	  a.start();
+	  
+	  B b= new B();
+	  Thread th=new Thread(b);
+	  th.start();
+	}
+}
+class 
+class A extends Thread {
+    public void run() {
+        for (int i = 0; i < 10; i++) {
+            System.out.println("----a---" + i);
+        }
+    }
+}
+class B implements Runnable{
+    public void run() {
+        for (int i = 0; i < 10; i++) {
+            System.err.println("----b---" + i);
+        }
+    }
+}
+In the main method we cannot call run method,we should call start method instead of run method. But,we also cannot call the start method inside runnable method because, we dont have start method inside run interface.
+For runnable threads we need to create instance of thread class and call start method on it.
+   B b= new B();
+	  Thread th=new Thread(b);
+	  th.start();
+
+There are single task and parallel processing.
+parallel processing:This will execute parallely.
+Example:public class Shape {
+  public static void main(String[] args) throws Exception{
+	  A a = new A();
+	  a.start();
+	  
+	  B b= new B();
+	  Thread th=new Thread(b);
+	  th.start();
+	}
+}
+class A extends Thread{                                                       o/p:
+	public void run(){                                                    a--1
+		for(int i=0;i<3;i++){                                        b--1
+			System.out.println("a--"+i);                         a--2
+			try{                                                 b--2
+				Thread.sleep(1000);                          a--3
+			}catch(InterruptedException e){                      b--3
+			e.printStackTrace();
+			}
+		}
+	}
+}
+class B implements Runnable{
+	public void run(){
+		for(int i=0;i<3;i++){
+			System.out.println("b--"+i);
+			try{
+				Thread.sleep(1000);
+			}catch(InterruptedException e){
+				e.printStackTrace();
+			}
+			}
+	}
+}
+
+
+	
