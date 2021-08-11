@@ -1,0 +1,64 @@
+THREADPOOL:This will present inside the cpu.It is the place where the instances of the objects are stored.And the another one is the Thread stack, whenever a new instance is created it is located in the thread stack.Here is the place where the object references are stored.It will check with the thread pool for the reference.Inside the threadpool,in memory there will be some space allocation for executing threads in JVM.
+THREAD SCHEDULAR: Thread scheduler in java is the part of the JVM that decides which thread should run.There is no guarantee that which runnable thread will be chosen to run by the thread scheduler.Only one thread at a time can run in a single process.
+
+Thread Life Cycle:The life cycle of the thread in java is controlled by JVM. The java thread states are as follows:
+1.New    2.Runnable  3.Running   4.Blocked    5.Terminated
+
+1.New: When a new thread is created, it is in the new state. The thread has not yet started to run when thread is in this state. When a thread lies in the new state, it’s code is yet to be run and hasn’t started to execute.EX: A a= new A();
+2.Runnable:It means the thread is ready to run.A thread that is ready to run is moved to runnable state. In this state, a thread might actually be running or it might be ready run at any instant of time. It is the responsibility of the thread scheduler to give the thread, time to run.
+3.Running:The JVM checks if the threadpool is free or not,then it will pick the thread that is ready to run.The thread is in running state if the thread scheduler has selected it.
+4.Blocked:After running state there are 2 states for the thread.-->blocked     ----->wait
+  Blocked:This is the state when the thread is still alive, but is currently not eligible to run. when a thread is waiting for I/O to complete, it lies in the blocked state. It’s the responsibility           of the thread scheduler to reactivate and schedule a blocked/waiting thread. A thread in this state cannot continue its execution any further until it is moved to runnable state.A thread           is in the blocked state when it tries to access a protected section of code that is currently locked by some other thread. When the protected section is unlocked, the schedule picks one           of the thread which is blocked for that section and moves it to the runnable state.
+  Waiting: Whereas, a thread is in the waiting state when it waits for another thread on a condition. When this condition is fulfilled, the scheduler is notified and the waiting thread is moved to            runnable state. It is the responsibility of thread scheduler to determine which thread to run.
+5.Terminated:Because it exists normally. This happens when the code of thread has entirely executed by the program.Because there occurred some unusual erroneous event, like segmentation fault or an              unhandled exception.A thread is in terminated or dead state when its run() method exits.
+
+Serialization:Serialization in Java is a mechanism of writing the state of an object into a byte-stream.The Serializable interface must be implemented by the class whose object needs to be persisted.
+ObjectOutputStream:The ObjectOutputStream class is used to write primitive data types, and Java objects to an OutputStream. Only objects that support the java.io.Serializable interface can be written to streams.
+Oimport java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+public class Test {
+
+	public static void main(String[] args) throws Exception {
+		ObjectOutputStream oos= new ObjectOutputStream(new FileOutputStream(new File("employee.txt")));
+	
+		Employee emp=new Employee();
+		emp.setId(100);
+		emp.setName("java");
+		 oos.writeObject(emp);
+		 oos.close();
+		 System.out.println("completed");
+		 
+		 ObjectInputStream ois=new ObjectInputStream(new FileInputStream(new File("employee.txt")));
+	     Employee obj=(Employee) ois.readObject();
+	     System.out.println(obj.getId()+" \n"+obj.getName());
+             ois.close();
+}
+}
+class Employee implements Serializable {
+private int id;
+private String name;
+public Employee() {
+    }
+public Employee(int id, String name) {
+        super();
+        this.id = id;
+        this.name = name;
+    }
+public int getId() {
+        return id;
+    }
+public void setId(int id) {
+        this.id = id;
+    }
+public String getName() {
+        return name;
+    }
+public void setName(String name) {
+        this.name = name;
+    }
+    }bjectInputStream:An ObjectInputStream deserializes objects and primitive data written using an ObjectOutputStream.
