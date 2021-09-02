@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Store</title>
+<script>
+function myfunction(x)
+ {
+	 var status=document.getElementById("card");
+	 if(x==0 )
+		 {
+		 document.getElementById("balance").innerHTML="Limit";
+		 }
+	 else
+		 {
+		 document.getElementById("balance").innerHTML="Balance";
+		 }
+ }
+</script>
+<style>
+body{
+background:none;
+font-alignment:middle;
+line-height:3em;
+}
+#container{
+border:1px #cccc solid;
+padding:0 10px 0 10px;
+text:center;
+width:700px;
+height:900px;
+margin:50px auto;
+overflow:hidden
+}
+#Allfields-section{
+   margin-left:20px;
+   color:red;
+}
+#Allfields-section t{
+ color:red;
+}
+h1{
+font-family:arial;
+text-align:center;
+color:purple;
+}
+.b  {
+font-size:25px;
+text-align:auto;
+border-left:50px;
+text-align:center;
+padding-left:30px;
+positon:absolute;
+cursor:pointer;
+}
+tr:nth-child(odd) {
+  background-color: #D6EEEE;
+}
+</style>
+</head>
+
+<body>
+<div id="container">
+			<h1>Welcome To Store</h1>
+		<h3 >User Creation:</h3>
+		<div id="Allfields-section">
+		  <t>*</t>All fields are mandatory
+		  </div>
+			<div  class="b">
+        <form action="http://localhost:8080/MyWebApp/MyServlet">
+	        <label>UserName<t style="color:red">*</t></label>
+			<input style="height:35px;border-radius:10px" type="text" id="name" name="name" placeholder="Please enter the Username" ><br>
+		    <label>Password<t style="color:red">*</t></label>
+		    <input style="height:35px;border-radius:10px" type="text" id="password" name="password" placeholder="Please enter the Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@]).{8,}"><br>
+            <label for="myCheck">Card type<t style="color:red">*</t>: </label> 
+             <input type="checkbox" name="card" id="credit" value="credit" onclick="myfunction(0)"> Credit
+             <input type="checkbox" name="card" id="debit" value="debit"onclick="myfunction(1)"> Debit<br>
+              <label class = "required" id="balance" for="bal"  >Limit<t style="color:red">*</t></label>
+              <input style="height:35px;border-radius:10px" type="number" id="bal" name="bal" placeholder="1000" >
+			 </div>
+			 <br>
+			 <button style="background-color:orange;font-size:25px;border-radius:20px;margin:auto" type="button" id="submit" name="submit" >add</button>
+		     <button style="background-color:purple;font-size:25px;border-radius:20px;margin:auto" type="button" id="reset" name="reset" >RESET</button>
+		    
+        </form>
+		<div><br>
+		<table id="myTable" style="width:90%;text-align:center;padding-left:30px">
+			<tr>
+					<th>Name</th>
+					<th>Account Type</th>
+					<th>Balance/Limit</th>
+			</tr>
+			<tr>
+				<td>Ajay</td>
+				<td>Credit</td>
+				<td>1000</td>
+			</tr>
+			<tr>
+				<td>Ram</td>
+				<td>Debit</td>
+				<td>200</td>
+			</tr>
+			<tr>
+				<td>Govind</td>
+				<td>Debit</td>
+				<td>345</td>
+			</tr>
+			<tr>
+				<td>Hari</td>
+				<td>Credit</td>
+				<td>1000</td>
+			</tr>
+		</table>
+	</div>
+</div>
+</body>
+</html>
+
+
